@@ -1,4 +1,4 @@
-# Backup System Requirements (Priority List rev 11)
+# Backup System Requirements (Revision 12)
 
 ## Must‑have
 1. **Prefer best‑tested, proven tools & techniques** — default choice unless documented reason to diverge.  
@@ -31,3 +31,18 @@
 4. GUI rollback tool **(prefer Qt over GTK)**.  
 5. Automated swing‑space reclaim script.  
 6. Design notes include how well‑tested / battle‑proven each technique is.  
+
+---
+## Implementation Requirements
+
+### General
+1. **Early subsystem testing** — implement and test each major component (snapshots, USB backup, cloud sync) as soon as feasible so design flaws surface early.  
+2. **Small, independent steps** — break work into atomic tasks to avoid leaving Atlantis in a half‑working state; laptop must stay usable for day‑to‑day chores.
+
+### Situation‑specific (Fedora 40 → Fedora 41 transition)
+1. **Automatic snapshots on current Fedora 40 Btrfs root** — use btrbk timers (or Snapper if simpler) so you gain hands‑on practice before disk changes.  
+2. **Temporary automatic backups to existing NTFS USB drive** — prove the backup flow even on a non‑Btrfs target; tool choice documented in the implementation plan.  
+3. **Upgrade to Fedora 41 once backups validated** — proceed only when at least one successful snapshot & USB backup cycle has completed.  
+4. **Enable automatic encrypted uploads to cloud (Wasabi default)** — start with weekly cadence; document how to trigger an immediate upload before trips or risky travel.  
+
+These requirements merge operational safety with learning goals and will drive the step‑by‑step Implementation Plan.
