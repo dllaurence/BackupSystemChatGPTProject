@@ -1,0 +1,23 @@
+Working with btrfs volumes
+
+Series on btrfs in Fedora Magazine starting in October 2022
+https://fedoramagazine.org/working-with-btrfs-general-concepts/
+
+
+Remember the other tools for the partitions where btrfs volumes live:
+
+df
+fdisk -l
+
+btrfs commands
+
+For example's sake, I'll use the Linux partion on my F40 disk,
+/dev/nvme0n1p3 mounted on /
+
+List basic informaton about a (possibly unmounted btrfs filesystem
+
+sudo btrfs filesystem show /dev/nvme0n1p3
+
+List subvolumes of a mounted filesystem
+
+sudo btrfs subvolume list /
