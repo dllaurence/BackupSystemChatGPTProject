@@ -49,3 +49,29 @@
 
 ## Implementation Clarifications
 * “Minimal configuration” applies only to the final stabilized system. Mock‑ups may employ extra tools or simpler defaults if that accelerates milestones or learning; such deviations must be flagged *temporary* in the Implementation Plan and removed before Milestone M‑4.
+
+---
+### Implementation Requirements
+
+**General (apply to all phases)**  
+- **G‑1 Early subsystem testing:** implement and test snapshots, USB backups, and cloud uploads as soon as feasible so design flaws show up early.  
+- **G‑2 Small, independent steps:** each task should leave Atlantis bootable and usable for day‑to‑day work.  
+- **G‑3 Milestone order:**  
+  1. M‑1 Backup of Fedora 40  
+  2. M‑2 End‑to‑end backups on Fedora 41  
+  3. M‑3 openSUSE Tumbleweed running  
+  4. M‑4 End‑to‑end backups on Tumbleweed (Linux complete)  
+  5. M‑5 Windows backups integrated  
+  6. M‑6 Android backups integrated  
+- **G‑4 Minimal‑configuration applies only to final design;** mock‑ups may add tools if marked *temporary*.  
+- **G‑5 Scripts in Git:** every file created during implementation must be committed to the project repo.
+
+**Situation‑specific**  
+- **S‑1** Create automatic snapshots on the current Fedora 40 install first.  
+- **S‑2** Set up temporary automatic backups to the existing **NTFS USB** drive.  
+- **S‑3** Perform a fresh Fedora 41 install in a new Btrfs subvolume (keep Fedora 40 fallback).  
+- **S‑4** Install openSUSE Tumbleweed as soon as Fedora 41 backups are validated.  
+- **S‑5** Keep Fedora 41 alongside until Tumbleweed backups are proven.  
+- **S‑6** Exploit Btrfs flexibility: shrink Fedora 40 partition once to carve `/boot`, ESP‑B, and new roots; avoid full wipes.  
+- **S‑7** Complete Linux backups on Tumbleweed before adding Windows and Android stages.
+
