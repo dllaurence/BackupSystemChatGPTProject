@@ -24,13 +24,13 @@ Single encrypted Restic repository deduplicates across **all devices**; Btrfs se
 |                | p3 | 64 GB  | swap | — | Single swap |
 |                | p4 | rest  | Btrfs `LINPOOL` | `/` (subvolumes) | Main pool |
 
-USB **2 TB** external drive:
+USB **4 .5 TB** external drive:
 
 | Part | Size | FS | Label | Role |
 |------|------|----|-------|------|
-| 1 | 600 GB | NTFS | **WINBKUP** | Veeam images + Windows File History |
-| 2 | 300 GB | ext4 | **CUSHION** | swing‑space |
-| 3 | ~1 TB | Btrfs | **LINBKUP** | Btrfs send/receive target + Restic repo cache |
+| 1 | **1 TB** | NTFS | **WINBKUP** | Veeam images + Windows File History |
+| 2 | **500 GB** | ext4 | **CUSHION** | swing‑space |
+| 3 | **≈ 3 TB** | Btrfs | **LINBKUP** | Btrfs send/receive target + Restic repo cache |
 
 ---
 ## 2 Subvolume Tree (Linux)
